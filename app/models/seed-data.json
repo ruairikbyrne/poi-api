@@ -1,0 +1,125 @@
+{
+  "users": {
+    "_model":  "User",
+    "homer": {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret"
+    },
+    "marge": {
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret"
+    },
+    "bart": {
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret"
+    }
+  },
+  "category": {
+    "_model": "Category",
+    "church": {
+      "categoryName": "Church"
+    },
+    "beach": {
+      "categoryName": "Beach"
+    },
+    "castle": {
+      "categoryName": "Castle"
+    },
+    "house": {
+      "categoryName": "Historic House"
+    },
+    "monument": {
+      "categoryName": "Monument"
+    },
+    "forest": {
+      "categoryName": "Forest"
+    },
+    "park": {
+      "categoryName": "Park"
+    },
+    "lighthouse": {
+      "categoryName": "Light House"
+    }
+  },
+  "locations": {
+    "_model": "Location",
+    "Rosslare Strand": {
+      "name": "Rosslare Strand",
+      "description": "Bathing water",
+      "longitude": "1234",
+      "latitude": "1234",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615915621/byv1jeih2dle6vqofxbx.jpg",
+      "imageid": "byv1jeih2dle6vqofxbx",
+      "category":"->category.beach"
+    },
+    "Loftus Hall": {
+      "name": "Loftus Hall",
+      "description": "Haunted House",
+      "longitude": "879456",
+      "latitude": "789456",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615916021/kkvitgx3vqfzw1qtlaxf.jpg",
+      "imageid": "kkvitgx3vqfzw1qtlaxf",
+      "category":"->category.house"
+    },
+    "bride street": {
+      "name": "Bride Street Church, Wexford Town",
+      "description": "One of the twin churches which dominates the Wexford skyline. Its sister church is Rowe Street",
+      "longitude": "7898789",
+      "latitude": "7897879",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615998525/cjww11ginqksbgkrwfxm.jpg",
+      "imageid": "cjww11ginqksbgkrwfxm",
+      "category":"->category.church"
+    },
+    "rowe street": {
+      "name": "Rowe Street Church, Wexford Town",
+      "description": "One of the twin churches which dominates the Wexford skyline. Its sister church is Bride Street",
+      "longitude": "1234567",
+      "latitude": "7654321",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615929006/fclz07yuycxxn0dazze6.jpg",
+      "imageid": "fclz07yuycxxn0dazze6",
+      "category":"->category.church"
+    },
+    "curracloe": {
+      "name": "Curracloe Beach",
+      "description": "Bathing water",
+      "longitude": "456879",
+      "latitude": "789789",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616005273/jkypefcovug8ejtia7ez.jpg",
+      "imageid": "jkypefcovug8ejtia7ez",
+      "category":"->category.beach"
+    },
+    "raven": {
+      "name": "Raven Forest",
+      "description": "Raven forest, Wexford",
+      "longitude": "12345",
+      "latitude": "12345",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616164969/j0us46bxivnjzqjs1noy.jpg",
+      "imageid": "j0us46bxivnjzqjs1noy",
+      "category":"->category.forest"
+    },
+    "hook": {
+      "name": "Hook Head Lighthouse",
+      "description": "Oldest lighthouse in Europe",
+      "longitude": "12345",
+      "latitude": "4321",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616323365/n2b9togcurpbppaghvhb.jpg",
+      "imageid": "n2b9togcurpbppaghvhb",
+      "category":"->category.lighthouse"
+    },
+    "jfkpark": {
+      "name": "John F Kennedy Arboretum",
+      "description": "A park under public administration. On 252 hectares there are approximately 4,500 species of trees and shrubs. ",
+      "longitude": "1234",
+      "latitude": "156787",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616323707/dbtvn2js6bqspbazmyyy.jpg",
+      "imageid": "dbtvn2js6bqspbazmyyy",
+      "category":"->category.park"
+    }
+  }
+}
