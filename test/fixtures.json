@@ -1,0 +1,128 @@
+{
+  "poiService": "http://localhost:3000",
+  "users": [
+    {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret"
+    }
+  ],
+  "categories": [
+    {
+      "categoryName": "Church"
+    },
+    {
+      "categoryName": "Beach"
+    },
+    {
+      "categoryName": "Castle"
+    },
+    {
+      "categoryName": "Historic House"
+    },
+    {
+      "categoryName": "Monument"
+    },
+    {
+      "categoryName": "Forest"
+    },
+    {
+      "categoryName": "Park"
+    },
+    {
+      "categoryName": "Light House"
+    }
+  ],
+  "newCategory":
+    {
+      "categoryName": "Wildlife Reserve"
+    },
+  "locations": [
+    {
+      "name": "Rosslare Strand",
+      "description": "Bathing water",
+      "longitude": "1234",
+      "latitude": "1234",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615915621/byv1jeih2dle6vqofxbx.jpg",
+      "imageid": "byv1jeih2dle6vqofxbx"
+    },
+    {
+      "name": "Loftus Hall",
+      "description": "Haunted House",
+      "longitude": "879456",
+      "latitude": "789456",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615916021/kkvitgx3vqfzw1qtlaxf.jpg",
+      "imageid": "kkvitgx3vqfzw1qtlaxf"
+    },
+    {
+      "name": "Bride Street Church, Wexford Town",
+      "description": "One of the twin churches which dominates the Wexford skyline. Its sister church is Rowe Street",
+      "longitude": "7898789",
+      "latitude": "7897879",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615998525/cjww11ginqksbgkrwfxm.jpg",
+      "imageid": "cjww11ginqksbgkrwfxm"
+    },
+    {
+      "name": "Rowe Street Church, Wexford Town",
+      "description": "One of the twin churches which dominates the Wexford skyline. Its sister church is Bride Street",
+      "longitude": "1234567",
+      "latitude": "7654321",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615929006/fclz07yuycxxn0dazze6.jpg",
+      "imageid": "fclz07yuycxxn0dazze6"
+    },
+    {
+      "name": "Curracloe Beach",
+      "description": "Bathing water",
+      "longitude": "456879",
+      "latitude": "789789",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616005273/jkypefcovug8ejtia7ez.jpg",
+      "imageid": "jkypefcovug8ejtia7ez"
+    },
+    {
+      "name": "Raven Forest",
+      "description": "Raven forest, Wexford",
+      "longitude": "12345",
+      "latitude": "12345",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616164969/j0us46bxivnjzqjs1noy.jpg",
+      "imageid": "j0us46bxivnjzqjs1noy"
+    },
+    {
+      "name": "Hook Head Lighthouse",
+      "description": "Oldest lighthouse in Europe",
+      "longitude": "12345",
+      "latitude": "4321",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616323365/n2b9togcurpbppaghvhb.jpg",
+      "imageid": "n2b9togcurpbppaghvhb"
+    },
+    {
+      "name": "John F Kennedy Arboretum",
+      "description": "A park under public administration. On 252 hectares there are approximately 4,500 species of trees and shrubs. ",
+      "longitude": "1234",
+      "latitude": "156787",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1616323707/dbtvn2js6bqspbazmyyy.jpg",
+      "imageid": "dbtvn2js6bqspbazmyyy"
+    }
+  ],
+  "newLocation":
+    {
+      "name": "Irish National Heritage Park",
+      "description": "The Irish National Heritage Park is a unique heritage experience in Ireland and Europe that brings to life over 9000 years of Irish history.",
+      "longitude": "52",
+      "latitude": "-6",
+      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615915621/bqp1ppb55miwrs5xeckv.jpg",
+      "imageid": "bqp1ppb55miwrs5xeckv"
+    }
+}

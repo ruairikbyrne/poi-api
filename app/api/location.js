@@ -30,6 +30,7 @@ const Locations = {
     create: {
         auth: false,
         handler: async function (request, h) {
+            console.log("Hitting Create in API")
             const newLocation = new Location(request.payload);
             const location = await newLocation.save();
             if (location) {
@@ -50,8 +51,8 @@ const Locations = {
     deleteOne: {
         auth: false,
         handler: async function (request, h) {
-            const location = await Location.remove({ _id: request.params.id });
-            if (location) {
+            const response = await Location.deleteOne({ _id: request.params.id });
+            if (response.deletedCount == 1) {
                 return { success: true };
             }
             return Boom.notFound("id not found");

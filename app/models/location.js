@@ -6,8 +6,8 @@ const Schema = Mongoose.Schema;
 const locationSchema = new Schema({
   name: String,
   description: String,
-  longitude: Number,
-  latitude: Number,
+  longitude: String,
+  latitude: String,
   imageurl: String,
   imageid: String,
   category: {
