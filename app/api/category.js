@@ -8,6 +8,7 @@ const Categories = {
         auth: false,
         handler: async function (request, h) {
             const categories = await Category.find();
+            console.log("Categories find result:  ", categories);
             return categories;
         },
     },

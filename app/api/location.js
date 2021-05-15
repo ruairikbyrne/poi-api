@@ -7,7 +7,8 @@ const Locations = {
     find: {
         auth: false,
         handler: async function (request, h) {
-            const locations = await Location.find();
+            const locations = await Location.find().populate("category");
+            console.log("Locations find result:  ", locations);
             return locations;
         },
     },
@@ -32,6 +33,7 @@ const Locations = {
         handler: async function (request, h) {
             console.log("Hitting Create in API")
             const newLocation = new Location(request.payload);
+            console.log("API newLocation: ", newLocation);
             const location = await newLocation.save();
             if (location) {
                 return h.response(location).code(201);

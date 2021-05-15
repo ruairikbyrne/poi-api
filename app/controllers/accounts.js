@@ -2,6 +2,8 @@
 
 const User = require("../models/user");
 const Boom = require("@hapi/boom");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const Accounts = {
   index: {
@@ -26,11 +28,14 @@ const Accounts = {
           const message = "Email address already registered";
           throw Boom.badData(message);
         }
+
+        const hash = await bcrypt.hash(payload.password, saltRounds);
+
         const newUser = new User({
           firstName: payload.firstName,
           lastName: payload.lastName,
           email: payload.email,
-          password: payload.password,
+          password: hash,
         });
         user = await newUser.save();
         request.cookieAuth.set({ id: user.id });
@@ -56,7 +61,7 @@ const Accounts = {
           const message = "Email address is not registered";
           throw Boom.unauthorized(message);
         }
-        user.comparePassword(password);
+        await user.comparePassword(password);
         request.cookieAuth.set({ id: user.id });
         return h.redirect("/home");
       } catch (err) {
@@ -87,10 +92,11 @@ const Accounts = {
       const userEdit = request.payload;
       const id = request.auth.credentials.id;
       const user = await User.findById(id);
+      const hash = await bcrypt.hash(payload.password, saltRounds);
       user.firstName = userEdit.firstName;
       user.lastName = userEdit.lastName;
       user.email = userEdit.email;
-      user.password = userEdit.password;
+      user.password = hash;
       await user.save();
       return h.redirect("/settings");
     },
