@@ -1,0 +1,27 @@
+<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-primary uk-card-body uk-box-shadow-large">
+    <h3 class="uk-card-title">Location Review</h3>
+    <form class="uk-form-horizontal" action="/gallery" method="POST">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Enter Review</label>
+            <div class="uk-form-controls">
+                <input type="text" class="uk-input" name="reviewDescription" placeholder="Review">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Star Rating</label>
+            <select class="uk-select" name="rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <p uk-margin>
+            <input type="submit" value="Add Review" class="uk-button uk-button-default">
+        </p>
+
+    </form>
+</div>

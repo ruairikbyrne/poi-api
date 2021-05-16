@@ -32,7 +32,24 @@ const Locations = {
         auth: false,
         handler: async function (request, h) {
             console.log("Hitting Create in API")
-            const newLocation = new Location(request.payload);
+            const data = request.payload;
+            console.log("data: ", data);
+            const file = request.payload.imageurl;
+            console.log("file: ", file);
+            if(Object.keys(file).length > 0) {
+                const result = await ImageStore.uploadImage(request.payload.imageurl);
+            };
+            console.log("Image ID form calling method: " + result.url);
+            const newLocation = new Location({
+                name: data.name,
+                description: data.description,
+                longitude: data.longitude,
+                latitude: data.latitude,
+                imageurl: result.url,
+                imageid: result.public_id,
+                category: data.category,
+
+            });
             console.log("API newLocation: ", newLocation);
             const location = await newLocation.save();
             if (location) {
@@ -40,7 +57,28 @@ const Locations = {
             }
             return Boom.badImplementation("error creating location");
         },
+        payload: {
+            multipart:true,
+            output: "data",
+            maxBytes: 209715200,
+            parse: true,
+        }
     },
+
+    //create: {
+    //    auth: false,
+    //    handler: async function (request, h) {
+    //        console.log("Hitting Create in API")
+    //       const newLocation = new Location(request.payload);
+    //        console.log("API newLocation: ", newLocation);
+    //        const location = await newLocation.save();
+    //        if (location) {
+    //            return h.response(location).code(201);
+    //        }
+    //        return Boom.badImplementation("error creating location");
+    //    },
+    //},
+
 
     deleteAll: {
         auth: false,
