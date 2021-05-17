@@ -1,7 +1,7 @@
 <div class="uk-margin uk-width-expand uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
     <table class="uk-table">
         <caption>
-            Points of Interest
+            User Reviews
         </caption>
         <thead>
             <th>Review</th>
@@ -10,18 +10,13 @@
             <th>Review Date</th>
         </thead>
         <tbody class="uk-text-left">
-        {{#each locations}}
+        {{#each reviews}}
             <tr>
-                <td>{{name}}</td>
-                <td>{{description}}</td>
-                <td>{{category.categoryName}}</td>
-                <td>{{longitude}}</td>
-                <td>{{latitude}}</td>
-                <td>
-                    <a href="/gallery/{{_id}}" class="uk-icon-link uk-margin-small-right" uk-icon="image"></a>
-                    <a href="/location/{{_id}}" class="uk-icon-link uk-margin-small-right" uk-icon="file-edit"></a>
-                    <a href="/report/{{_id}}" class="uk-icon-link" uk-icon="trash"></a>
-                </td>
+                <td>{{reviewDetail}}</td>
+                <td>{{rating}}</td>
+                <td>{{user}}</td>
+                <td>{{reviewDate}}</td>
+
             </tr>
         {{/each}}
         </tbody>

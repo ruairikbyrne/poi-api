@@ -2,6 +2,7 @@
 
 const User = require("../models/user");
 
+const Review = require("../models/reviews");
 const Location = require("../models/location");
 const Boom = require("@hapi/boom");
 const Joi = require("@hapi/joi");
@@ -10,54 +11,64 @@ const Reviews = {
     index: {
         auth: false,
         handler: function (request, h) {
-            return h.view("gallery", { title: "Welcome to Visit Wexford" });
+            return h.view("reviews", { title: "Welcome to Visit Wexford" });
         },
     },
 
     addReview: {
         auth: false,
-        validate: {
-            payload: {
-                reviewDetail: Joi.string().required(),
-            },
-            options: {
-                abortEarly: false,
-            },
-            failAction: function (request, h, error) {
-                return h
-                    .view("category", {
-                        title: "Maintenance Error",
-                        errors: error.details,
-                    })
-                    .takeover()
-                    .code(400);
-            },
-        },
+
         handler: async function (request, h) {
             try {
+                const locationId = await Location.findById(request.params._id);
+                console.log("location id:", request.params._id );
                 const payload = request.payload;
-                let category = await Category.findByCategoryName(payload.categoryName);
-                console.log("Result of find by category name: ", category);
-                if (category) {
-                    const message = "Category already exists";
-                    console.log("Check message ", message);
-                    throw Boom.badData(message);
-                }
-                const newCategory = new Category({
-                    categoryName: payload.categoryName,
+                var datetime = new Date();
+                const newReview = new Review({
+                  reviewDate: datetime,
+                  reviewDetail: payload.reviewDetail,
+                  rating: payload.rating,
+                  location: locationId,
                 });
-                await newCategory.save();
-                const categories = await Category.find().populate().lean();
-                return h.view("category", {
-                    categories: categories,
+                await newReview.save();
+                const reviews = await Review.find({location: locationId}).populate().lean();
+                const location = await Location.findById(locationId).populate("category").lean();
+
+                console.log("Review results: ", reviews)
+                return h.view("reviews", {
+                    reviews: reviews,
+                    location: location,
                 });
             } catch (err) {
-                return h.view("category", {
+                console.log("add review error", err)
+                return h.view("reviews", {
                     errors: [{ message: err.message }],
                 });
             }
         },
     },
+
+    showReviews: {
+        handler: async function (request, h) {
+            console.log("POI ID ", request.params._id);
+            const locationId = request.params._id;
+            console.log("POI ID for mongoose query", locationId);
+            const location = await Location.findById(locationId).populate("category").lean();
+            const reviews = await Review.find({location: locationId}).populate().lean();
+            console.log("Review contents: ", reviews);
+
+            //const category = await Category.find().lean();
+            //console.log("Category:", category);
+            //console.log("Location Details", location);
+            return h.view("reviews", {
+                title: "User Reviews",
+                location: location,
+                reviews: reviews,
+
+            });
+        },
+    },
+
 };
 
 module.exports = Reviews;

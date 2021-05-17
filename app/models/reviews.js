@@ -8,7 +8,7 @@ const reviewSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    reviewDate: Date
+    reviewDate: Date,
     reviewDetail: String,
     rating: Number,
     location: {

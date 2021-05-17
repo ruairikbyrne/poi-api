@@ -1,4 +1,5 @@
 "use strict";
+
 const Location = require("../models/location");
 const Category = require("../models/category");
 const ImageStore = require("../utils/image-store");
@@ -61,6 +62,8 @@ const POIs = {
       }
     },
   },
+
+
 
   deleteLocation: {
     handler: async function (request, h) {

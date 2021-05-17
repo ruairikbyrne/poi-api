@@ -1,10 +1,10 @@
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-primary uk-card-body uk-box-shadow-large">
     <h3 class="uk-card-title">Location Review</h3>
-    <form class="uk-form-horizontal" action="/gallery" method="POST">
+    <form class="uk-form-horizontal" action="/reviews/{{location._id}}" method="POST">
         <div class="uk-margin">
             <label class="uk-form-label" for="form-horizontal-text">Enter Review</label>
             <div class="uk-form-controls">
-                <input type="text" class="uk-input" name="reviewDescription" placeholder="Review">
+                <input type="text" class="uk-input" name="reviewDetail" placeholder="Review">
             </div>
         </div>
 
