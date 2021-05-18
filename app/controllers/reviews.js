@@ -16,22 +16,29 @@ const Reviews = {
     },
 
     addReview: {
-        auth: false,
+        //auth: false,
 
         handler: async function (request, h) {
             try {
+
                 const locationId = await Location.findById(request.params._id);
                 console.log("location id:", request.params._id );
                 const payload = request.payload;
+                const id = request.auth.credentials.id;
+                console.log("Cookie user id", id);
+                const user = await User.findById(id);
+
+                //const user = await User.findById(id);
                 var datetime = new Date();
                 const newReview = new Review({
                   reviewDate: datetime,
                   reviewDetail: payload.reviewDetail,
                   rating: payload.rating,
                   location: locationId,
+                  user: user._id,
                 });
                 await newReview.save();
-                const reviews = await Review.find({location: locationId}).populate().lean();
+                const reviews = await Review.find({location: locationId}).populate("user").lean();
                 const location = await Location.findById(locationId).populate("category").lean();
 
                 console.log("Review results: ", reviews)
@@ -50,11 +57,17 @@ const Reviews = {
 
     showReviews: {
         handler: async function (request, h) {
+
+            const id = request.auth.credentials.id;
+            console.log("Cookie user id", id);
+            const user = await User.findById(id);
+
             console.log("POI ID ", request.params._id);
             const locationId = request.params._id;
             console.log("POI ID for mongoose query", locationId);
             const location = await Location.findById(locationId).populate("category").lean();
-            const reviews = await Review.find({location: locationId}).populate().lean();
+            //const reviews = await Review.find({location: locationId}).populate().lean();
+            const reviews = await Review.find({location: locationId}).populate("user").lean();
             console.log("Review contents: ", reviews);
 
             //const category = await Category.find().lean();
@@ -64,7 +77,7 @@ const Reviews = {
                 title: "User Reviews",
                 location: location,
                 reviews: reviews,
-
+                user: user,
             });
         },
     },
