@@ -117,12 +117,35 @@
     }
   ],
   "newLocation":
+  {
+    "name": "Irish National Heritage Park",
+    "description": "The Irish National Heritage Park is a unique heritage experience in Ireland and Europe that brings to life over 9000 years of Irish history.",
+    "longitude": "52",
+    "latitude": "-6",
+    "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615915621/bqp1ppb55miwrs5xeckv.jpg",
+    "imageid": "bqp1ppb55miwrs5xeckv"
+  },
+  "reviews": [
     {
-      "name": "Irish National Heritage Park",
-      "description": "The Irish National Heritage Park is a unique heritage experience in Ireland and Europe that brings to life over 9000 years of Irish history.",
-      "longitude": "52",
-      "latitude": "-6",
-      "imageurl": "http://res.cloudinary.com/dq5zevjgv/image/upload/v1615915621/bqp1ppb55miwrs5xeckv.jpg",
-      "imageid": "bqp1ppb55miwrs5xeckv"
+      "reviewDetail": "Great day out!",
+      "rating": 5
+    },
+    {
+      "reviewDetail": "Disappointing!",
+      "rating": 1
+    },
+    {
+      "reviewDetail": "Great for all the family!",
+      "rating": 4
+    },
+    {
+      "reviewDetail": "Facilities great, food could be better",
+      "rating": 3
     }
+  ],
+  "newReview":
+  {
+    "reviewDetail": "Weather was bad and outdoor facilities not great.",
+    "rating": 2
+  }
 }

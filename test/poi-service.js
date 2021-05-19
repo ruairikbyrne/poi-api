@@ -25,6 +25,7 @@ class POIService {
     async createLocation(newLocation) {
         try{
             const response = await axios.post(this.baseUrl + "/api/location", newLocation);
+            console.log("response: ", response);
             return response.data;
         } catch (e) {
             return null;
@@ -119,6 +120,40 @@ class POIService {
 
     async deleteOneCategory(id) {
         const response = await axios.delete(this.baseUrl + "/api/category/" + id);
+        return response.data;
+    }
+
+    async getReviews() {
+        const response = await axios.get(this.baseUrl + "/api/reviews");
+        return response.data;
+    }
+
+    async getReviews(id) {
+        try {
+            const response = await axios.get(this.baseUrl + "/api/reviews/" + id);
+            return response.data;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    async createReview(newReview) {
+        try{
+            const response = await axios.post(this.baseUrl + "/api/reviews", newReview);
+            return response.data;
+        } catch (e) {
+            return null;
+        }
+
+    }
+
+    async deleteAllReviews() {
+        const response = await axios.delete(this.baseUrl + "/api/reviews");
+        return response.data;
+    }
+
+    async deleteOneReview(id) {
+        const response = await axios.delete(this.baseUrl + "/api/reviews/" + id);
         return response.data;
     }
 

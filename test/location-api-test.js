@@ -22,6 +22,8 @@ suite("Location API tests", function () {
 
     test("create a location", async function () {
         const returnedLocation = await poiService.createLocation(newLocation);
+        console.log("Returned Location ", returnedLocation);
+        console.log("New Location ", newLocation);
         assert(_.some([returnedLocation], newLocation), "returnedLocation must be a superset of newLocation");
         assert.isDefined(returnedLocation._id)
     });
