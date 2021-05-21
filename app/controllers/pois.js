@@ -26,16 +26,11 @@ const POIs = {
 
   showLocation: {
     handler: async function (request, h) {
-      console.log("POI ID ", request.params._id);
       const locationId = request.params._id;
-      console.log("POI ID for mongoose query", locationId);
       const location = await Location.findById(locationId)
         .populate("category")
         .lean();
-
       const category = await Category.find().lean();
-      console.log("Category:", category);
-      console.log("Location Details", location);
       return h.view("location", {
         title: "Add a place of interest",
         location: location,
@@ -48,9 +43,7 @@ const POIs = {
     handler: async function (request, h) {
       try {
         const recordId = await Location.findById(request.params._id);
-        console.log("Mongoose Record: ", recordId);
         const imageId = recordId.imageid;
-        console.log("Image id from view Image: ", imageId);
         const allImages = await ImageStore.findImage(imageId);
         return h.view("gallery", {
           title: "Cloudinary Gallery",
@@ -69,9 +62,7 @@ const POIs = {
     handler: async function (request, h) {
       try {
         const recordId = await Location.findById(request.params._id);
-        console.log("Mongoose Record: ", recordId);
         const imageId = recordId.imageid;
-        console.log("Image id from view Image: ", imageId);
         await ImageStore.deleteImage(imageId);
         await Location.deleteOne(recordId);
         return h.redirect("/report");
@@ -86,7 +77,6 @@ const POIs = {
       try {
         const locationId = request.params._id;
         const file = request.payload.imagefile;
-        console.log("File: ", file);
         const location = await Location.findById(locationId);
         const rawCategory = request.payload.category;
         const category = await Category.findOne({
@@ -124,18 +114,14 @@ const POIs = {
       try {
         const data = request.payload;
         const file = request.payload.imagefile;
-        console.log("File: ", file);
         const rawCategory = request.payload.category;
-        console.log("Raw Category: ", rawCategory);
         const category = await Category.findOne({
           categoryName: rawCategory,
         });
-        console.log("Category: ", category);
         if (Object.keys(file).length > 0) {
           const result = await ImageStore.uploadImage(
             request.payload.imagefile
           );
-          console.log("Image ID from calling method: " + result.url);
           const newLocation = new Location({
             name: data.name,
             description: data.description,

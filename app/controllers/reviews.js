@@ -22,13 +22,10 @@ const Reviews = {
             try {
 
                 const locationId = await Location.findById(request.params._id);
-                console.log("location id:", request.params._id );
                 const payload = request.payload;
                 const id = request.auth.credentials.id;
-                console.log("Cookie user id", id);
                 const user = await User.findById(id);
 
-                //const user = await User.findById(id);
                 var datetime = new Date();
                 const newReview = new Review({
                   reviewDate: datetime,
@@ -41,13 +38,11 @@ const Reviews = {
                 const reviews = await Review.find({location: locationId}).populate("user").lean();
                 const location = await Location.findById(locationId).populate("category").lean();
 
-                console.log("Review results: ", reviews)
                 return h.view("reviews", {
                     reviews: reviews,
                     location: location,
                 });
             } catch (err) {
-                console.log("add review error", err)
                 return h.view("reviews", {
                     errors: [{ message: err.message }],
                 });
@@ -57,22 +52,11 @@ const Reviews = {
 
     showReviews: {
         handler: async function (request, h) {
-
             const id = request.auth.credentials.id;
-            console.log("Cookie user id", id);
             const user = await User.findById(id);
-
-            console.log("POI ID ", request.params._id);
             const locationId = request.params._id;
-            console.log("POI ID for mongoose query", locationId);
             const location = await Location.findById(locationId).populate("category").lean();
-            //const reviews = await Review.find({location: locationId}).populate().lean();
             const reviews = await Review.find({location: locationId}).populate("user").lean();
-            console.log("Review contents: ", reviews);
-
-            //const category = await Category.find().lean();
-            //console.log("Category:", category);
-            //console.log("Location Details", location);
             return h.view("reviews", {
                 title: "User Reviews",
                 location: location,

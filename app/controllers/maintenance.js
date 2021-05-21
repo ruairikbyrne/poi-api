@@ -37,10 +37,8 @@ const Categories = {
       try {
         const payload = request.payload;
         let category = await Category.findByCategoryName(payload.categoryName);
-        console.log("Result of find by category name: ", category);
         if (category) {
           const message = "Category already exists";
-          console.log("Check message ", message);
           throw Boom.badData(message);
         }
         const newCategory = new Category({

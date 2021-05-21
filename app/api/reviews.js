@@ -8,7 +8,6 @@ const Reviews = {
         auth: false,
         handler: async function (request, h) {
             const reviews = await Review.find();
-            console.log("Reviews find result:  ", reviews);
             return reviews;
         },
     },
@@ -17,7 +16,6 @@ const Reviews = {
         auth: false,
         handler: async function (request, h) {
             try {
-                console.log("reviews findone")
                 const review = await Review.findOne({ _id: request.params.id });
                 if (!review) {
                     return Boom.notFound("No review with this id");
@@ -29,11 +27,9 @@ const Reviews = {
         },
     },
 
-
     create: {
         auth: false,
         handler: async function (request, h) {
-            console.log("Hitting Create review in API")
             const newReview = new Review(request.payload);
             const review = await newReview.save();
             if (review) {

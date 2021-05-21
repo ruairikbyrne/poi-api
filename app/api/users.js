@@ -18,9 +18,6 @@ const Users = {
         handler: async function (request, h) {
             try {
                 const user = await User.findOne({ _id: request.params.id });
-                console.log("Userdetails: ", request.params.email);
-
-
                 if (!user) {
                     return Boom.notFound("No User with this id");
                 }
@@ -51,17 +48,11 @@ const Users = {
     authenticate: {
         auth: false,
         handler: async function (request, h) {
-            console.log("Hitting API authenticate")
             try {
                 const user = await User.findOne({ email: request.payload.email });
                 if (!user) {
-                    console.log("API User not found");
                     return Boom.unauthorized("User not found");
                 } else if (!await user.comparePassword(request.payload.password)) {
-                //} else if (user.password !== request.payload.password) {
-                    console.log("API Invalid Password");
-                    console.log("User Password:", user.password);
-                    console.log("Payload Password:", request.payload.password);
                     return Boom.unauthorized("Invalid password");
                 } else {
                     return user;

@@ -8,7 +8,6 @@ const Categories = {
         auth: false,
         handler: async function (request, h) {
             const categories = await Category.find();
-            console.log("Categories find result:  ", categories);
             return categories;
         },
     },
@@ -32,7 +31,6 @@ const Categories = {
     create: {
         auth: false,
         handler: async function (request, h) {
-            console.log("Hitting Create in API")
             const newCategory = new Category(request.payload);
             const category = await newCategory.save();
             if (category) {

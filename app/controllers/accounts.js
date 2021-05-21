@@ -12,12 +12,14 @@ const Accounts = {
       return h.view("main", { title: "Welcome to Visit Wexford" });
     },
   },
+
   showSignup: {
     auth: false,
     handler: function (request, h) {
       return h.view("signup", { title: "Sign up to Visit Wexford" });
     },
   },
+
   signup: {
     auth: false,
     handler: async function (request, h) {
@@ -46,12 +48,14 @@ const Accounts = {
       }
     },
   },
+
   showLogin: {
     auth: false,
     handler: function (request, h) {
       return h.view("login", { title: "Login to Visit Wexford" });
     },
   },
+
   login: {
     auth: false,
     handler: async function (request, h) {
@@ -71,6 +75,7 @@ const Accounts = {
       }
     },
   },
+
   logout: {
     auth: false,
     handler: function (request, h) {
@@ -78,6 +83,7 @@ const Accounts = {
       return h.redirect("/");
     },
   },
+
   showSettings: {
     handler: async function (request, h) {
       try {
@@ -89,6 +95,7 @@ const Accounts = {
       }
     },
   },
+
   updateSettings: {
     handler: async function (request, h) {
       const userEdit = request.payload;
@@ -103,6 +110,7 @@ const Accounts = {
       return h.redirect("/settings");
     },
   },
+
 };
 
 module.exports = Accounts;
