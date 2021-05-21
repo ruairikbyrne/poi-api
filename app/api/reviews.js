@@ -17,6 +17,7 @@ const Reviews = {
         auth: false,
         handler: async function (request, h) {
             try {
+                console.log("reviews findone")
                 const review = await Review.findOne({ _id: request.params.id });
                 if (!review) {
                     return Boom.notFound("No review with this id");
