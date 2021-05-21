@@ -15,6 +15,7 @@ module.exports = [
     { method: "DELETE", path: "/api/users/{id}", config: Users.deleteOne },
     { method: "DELETE", path: "/api/users", config: Users.deleteAll },
     { method: "POST", path: "/api/users/authenticate", config: Users.authenticate },
+    { method: "PUT", path: "/api/users/{id}", config: Users.update },
     { method: "GET", path: "/api/category", config: Categories.find },
     { method: "GET", path: "/api/category/{id}", config: Categories.findOne },
     { method: "POST", path: "/api/category", config: Categories.create },

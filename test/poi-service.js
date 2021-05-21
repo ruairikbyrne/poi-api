@@ -64,6 +64,7 @@ class POIService {
 
     async createUser(newUser) {
         try {
+            console.log("API createUser")
             const response = await axios.post(this.baseUrl + "/api/users", newUser);
             return response.data;
         } catch (e) {
@@ -157,7 +158,17 @@ class POIService {
         return response.data;
     }
 
-
+    async authenticate(user) {
+        try {
+            console.log("Hitting api authhenticate")
+            const response = await axios.post(this.baseUrl + "/api/users/authenticate", user);
+            axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
+            return response.data;
+        } catch (e) {
+            console.log("Create user error", e);
+            return null;
+        }
+    }
 }
 
 module.exports = POIService;

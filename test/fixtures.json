@@ -20,6 +20,12 @@
       "password": "secret"
     }
   ],
+  "newUser": {
+    "firstName": "Maggie",
+    "lastName": "Simpson",
+    "email": "maggie@simpson.com",
+    "password": "secret"
+  },
   "categories": [
     {
       "categoryName": "Church"
