@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruairikbyrne/poi_proj.git"
+    "url": "git+https://https://github.com/ruairikbyrne/poi-api"
   },
   "author": "Ruairi Byrne",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ruairikbyrne/poi_proj/issues"
+    "url": "https://github.com/ruairikbyrne/poi-api"
   },
-  "homepage": "https://github.com/ruairikbyrne/poi_proj#readme",
+  "homepage": "https://github.com/ruairikbyrne/poi-api#readme",
   "dependencies": {
     "@cloudinary/base": "^1.0.0-beta.1",
     "@hapi/boom": "^9.1.1",
