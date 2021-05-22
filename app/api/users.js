@@ -51,8 +51,10 @@ const Users = {
             try {
                 const user = await User.findOne({ email: request.payload.email });
                 if (!user) {
+                    console.log("User not found");
                     return Boom.unauthorized("User not found");
                 } else if (!await user.comparePassword(request.payload.password)) {
+                    console.log("Invalid Password");
                     return Boom.unauthorized("Invalid password");
                 } else {
                     return user;
