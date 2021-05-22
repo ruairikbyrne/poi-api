@@ -20,11 +20,11 @@ const credentials = {
   api_secret: process.env.secret,
 };
 
-const result = env.config();
-if (result.error) {
-  console.log(result.error.message);
-  process.exit(1);
-}
+//const result = env.config();
+//if (result.error) {
+//  console.log(result.error.message);
+//  process.exit(1);
+//}
 
 async function init() {
   await server.register(Inert);
